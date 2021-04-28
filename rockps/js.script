@@ -1,0 +1,46 @@
+//Create function that simulates computer by making random selection of rock,paper,or scissors
+let rndNum
+let computerSelection
+let playerSelection
+function computerPlay(){
+    rndNum=Math.random();
+    if(rndNum<=.333){
+        return "rock";
+    }else if(rndNum>=.666){
+        return "paper";
+    }else{
+        return "scissors";
+    }
+}
+
+//Create function to input player selection compare to computer selection and output results of game
+function playRound(playerSelection, computerSelection){
+    computerSelection=computerPlay();
+    playerSelection=prompt("Input Rock, Paper, or Scissors to play").toLowerCase();
+    if(playerSelection==computerSelection){
+        return (playerSelection+" VS " + computerSelection + " is a TIE!");
+    }else if(playerSelection=="rock" && computerSelection=="paper"){
+        return "Paper beats rock, you LOSE!";
+    }else if(playerSelection=="rock" && computerSelection=="scissors"){
+        return "Rock beats scissors, you WIN!";
+    }else if(playerSelection=="paper" && computerSelection=="scissors"){
+        return "Scissors beats paper, you LOSE!";
+    }else if(playerSelection=="paper" && computerSelection=="rock"){
+        return "Paper beats rock, you WIN!";
+    }else if(playerSelection=="scissors" && computerSelection=="paper"){
+        return "Scissors beats paper, you WIN!";
+    }else if(playerSelection=="scissors" && computerSelection=="rock"){
+        return "Rock beats scissors, you LOSE!";
+    }else{
+        return "Incorrect selection, try again";
+    }
+}
+
+//Create function to play 5 games in a row
+function playFive(){
+    let i=0;
+    while(i<5){
+        console.log(playRound());
+        i++;
+    } 
+}
